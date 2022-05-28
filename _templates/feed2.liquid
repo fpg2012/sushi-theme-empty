@@ -1,7 +1,11 @@
 <rss version="2.0">
   <channel>
     <title>{{ site.site_name }}</title>
+    {% if rss_site_url %}
+    <link>{{ rss_site_url | prepend: "https:" }}</link>
+    {% else %}
     <link>{{ site.url | prepend: "https:" }}</link>
+    {% endif %}
     
     {% if site.description %}
     <description>{{ site.description }}</description>
@@ -24,7 +28,9 @@
     
     <generator>sushi-gen, https://github.com/fpg2012/sushi</generator>
     
-    {% for id in sitetree.posts._list %}
+    {% for id in paginator.current_batch %}
+    {% if id_to_page[id].nolist %}
+    {% else %}
     <item>
       <title>{{ id_to_page[id].title }}</title>
       <link>{{ id_to_page[id].url | prepend: "https:"}}</link>
@@ -46,6 +52,7 @@
         {% endfor %}
       {% endif %}
     </item>
+    {% endif %}
     {% endfor %}
   </channel>
 </rss>
