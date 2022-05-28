@@ -3,7 +3,8 @@ Theme written for sushi. Intended for Linux users. Tested on Arch Linux.
 
 ![screenshot](screenshot.png)
 
-[Sample](https://fpg2012.github.io/sushi-theme-letter)
+- [Sample 1](https://fpg2012.github.io/sushi-theme-letter)
+- [Example (my blog)](https://nth233.top)
 
 ## dependencies
 
