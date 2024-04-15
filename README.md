@@ -1,4 +1,4 @@
-# sushi-theme-letter
+# sushi-theme-empty
 Theme written for sushi. Intended for Linux users. Tested on Arch Linux.
 
 ![screenshot](_screenshot-light.png)
