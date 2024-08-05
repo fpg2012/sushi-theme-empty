@@ -1,6 +1,5 @@
-function generate_toc() {
+function generate_toc(menu) {
   post_content = document.querySelector('.post-content');
-  menu = document.querySelector('.post-menu');
   var flag = false;
   post_content.childNodes.forEach( node => {
     if (!node.tagName) {
@@ -23,8 +22,8 @@ function generate_toc() {
     menu_node = createElement('div', '', 'menu-item menu-'+node.tagName.toLowerCase());
     a = createElement('a', node.innerText, 'menu-item-link');
     a.setAttribute('href', '#' + node.id);
-    console.log(menu_node);
-    console.log(a);
+    // console.log(menu_node);
+    // console.log(a);
     menu_node.appendChild(a);
     return menu_node;
   }
@@ -46,4 +45,11 @@ function generate_toc() {
   })
 }
 
-generate_toc();
+function generate_all_toc() {
+  menu = document.querySelectorAll('.post-menu');
+  menu.forEach((value, key, array) => {
+    generate_toc(value);
+  })
+}
+
+generate_all_toc();

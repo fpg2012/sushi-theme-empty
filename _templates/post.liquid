@@ -1,8 +1,20 @@
 ---
 layout: page
 ---
-
-<div class='post-menu'>
+{% if page.no_ad %}
+{% else %}
+<div class='left-side-bar'>
+    <div class="author-info">
+        <img src="/assets/img/404.png">
+        <div>我是<a href="{{ '/about.html' | prepend: site.url }}">{{ site.author }}</a> <br/> 喜欢本文就点个♥吧</div>
+    </div>
+    <hr/>
+    {% if site.social_media or site.counting_stars %}
+    {% include 'social-media' %}
+    {% endif %}
+</div>
+{% endif %}
+<div class='right-side-bar post-menu'>
     <div class='menu-title'>{{ page.title }}</div>
     <hr>
 </div> 
@@ -27,10 +39,30 @@ layout: page
     {% endfor %}
     </div>
 </div>
-<hr class="hr-wavy">
+
+
+{% if site.social_media or site.counting_stars %}
+<div class="post-top-like-bar">
+{% include 'social-media' %}
+</div>
+{% endif %}
+
+<hr class="hr-wavy frontmatter-hr">
+
+<details class="post-menu-float">
+    <summary>目录</summary>
+    <div class="post-menu"></div>
+</details>
 <div class="post-content">
     {{ content }}
 </div>
+
+{% if site.social_media or site.counting_stars %}
+<div class="post-bottom-like-bar">
+{% include 'social-media' %}
+</div>
+{% endif %}
+
 {% if page.no_sibling_bar %}
 {% else %}
 <div class="sibling-pages">
@@ -52,7 +84,7 @@ layout: page
 {% endif %}
 {% if site.valine and page.comment %}
 <div class="comment-area">
-    <div defer id="vcomments"></div>
+    <div defer id="vcomments"> 评论区加载中 </div>
 </div>
 {% endif %}
 {% if site.isso and page.comment %}
@@ -66,3 +98,7 @@ layout: page
 {% endif %}
 </div>
 <script src={{ '/assets/js/generate-toc.js' | prepend: site.url }}></script>
+{% if site.counting_stars %}
+<script>var counting_stars_url = '{{ site.counting_stars.url }}'</script>
+<script src={{ '/assets/js/counting_stars.js' | prepend: site.url }}></script>
+{% endif %}
