@@ -10,6 +10,9 @@ Theme written for sushi. Intended for Linux users. Tested on Arch Linux.
 
 1. pandoc
 2. python package: pandocfilters and pygments
+3. typst (if you need to render `.typ` files to pdf)
+
+This theme requires ssushi version >= 0.2.10
 
 ## some pandoc filters
 

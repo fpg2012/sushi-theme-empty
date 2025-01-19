@@ -4,7 +4,11 @@ theme_author: "nth233"
 favicon: "/assets/favicon"
 utterances: true
 
-convert_ext: ["html", "md", "xml"]
+convert_ext: ["html", "md", "xml", "typ"]
+convert_to_ext:
+  "md": "html"
+  "typ": "pdf"
 converter_choice:
   "md": "convert.sh"
+  "typ: "convert-typ.sh
 taxonomies: ["category", "tag"]
