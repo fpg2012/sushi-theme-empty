@@ -41,14 +41,18 @@ layout: page
         {% if paginator.last_batch_num %}
         {% assign last_page = paginator.last_batch_num %}
         <div class="sibling-page">
-            <div class="sibling-page-arrow"><a href="{{ paginator.batch_urls[last_page] }}">〈</a></div>
+            <div class="sibling-page-arrow"><a href="{{ paginator.batch_urls[last_page] }}" title="Prev Page">〈</a></div>
         </div>
         {% endif %}
 
         {% if paginator.next_batch_num %}
         {% assign next_page = paginator.next_batch_num %}
         <div class="sibling-page">
-            <div class="sibling-page-arrow"><a href="{{ paginator.batch_urls[next_page] }}">〉</a></div>
+            {% if paginator.last_batch_num %}
+            <div class="sibling-page-arrow"><a href="{{ paginator.batch_urls[next_page] }}" title="Next Page">〉</a></div>
+            {% else %}
+            <div class="sibling-page-arrow first-page"><a href="{{ paginator.batch_urls[next_page] }}" title="Next Page">〉</a></div>
+            {% endif %}
         </div>
         {% endif %}
     </div>
